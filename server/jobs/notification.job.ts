@@ -32,7 +32,7 @@ const notificationHandlers: Record<NotificationType, (data: IWorkshopNotificatio
 export const defineNotificationJobs = (agenda: Agenda) => {
   agenda.define<IWorkshopNotificationData>(
     'WORKSHOP_NOTIFICATION', 
-    { priority: 'highest', concurrency: 20 }, // High priority, allow parallel processing
+    { priority: 20, concurrency: 20 }, // High priority, allow parallel processing
     async (job: Job<IWorkshopNotificationData>) => {
       const data = job.attrs.data;
       const { notificationType, phone, templateName, params } = data;

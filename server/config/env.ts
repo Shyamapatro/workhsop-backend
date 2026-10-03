@@ -6,7 +6,7 @@ import path from 'path';
 dotenv.config();
 
 export const config = {
-  port: 8000,
+  port: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
   nodeEnv: process.env.NODE_ENV || 'development',
   mongodbUri: process.env.MONGODB_URI,
   sentryDsn: process.env.SENTRY_DSN,
